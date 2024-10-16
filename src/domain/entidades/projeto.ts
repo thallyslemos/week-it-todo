@@ -37,13 +37,13 @@ export class Projeto {
   }
 
   public status(): Status {
-    const finalizado = this.tarefas.every((tarefa) => tarefa.finalizado);
+    const finalizado = this.tarefas.every((tarefa) => tarefa.isFinalizada());
     if (finalizado) return 'Finalizado';
-    const emAndamento = this.tarefas.some((tarefa) => tarefa.finalizado);
+    const emAndamento = this.tarefas.some((tarefa) => tarefa.isFinalizada());
     if (emAndamento) return 'Em andamento';
     const projetoVazio = this.tarefas.length === 0;
     if (projetoVazio) return 'Vazio';
-    const naoIniciado = this.tarefas.every((tarefa) => !tarefa.finalizado);
+    const naoIniciado = this.tarefas.every((tarefa) => !tarefa.isFinalizada());
     if (naoIniciado) return 'Não iniciado';
   }
 

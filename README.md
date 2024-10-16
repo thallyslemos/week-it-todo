@@ -1,85 +1,83 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Arquitetura de Software com TDD e DDD - WeekIT 2024
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este mini-curso foca na aplicação prática dos princípios de Desenvolvimento Orientado por Testes (TDD) e Design Orientado por Domínio (DDD) na construção de um sistema simples de gerenciamento de projetos.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Índice
 
-## Description
+1. [Introdução](#introdução)
+2. [Conceitos de DDD](#conceitos-de-ddd)
+3. [Noções Básicas de TDD](#noções-básicas-de-tdd)
+4. [Visão Geral do Projeto](#visão-geral-do-projeto)
+5. [Modelo de Domínio](#modelo-de-domínio)
+6. [Aplicando Conceitos de DDD](#aplicando-conceitos-de-ddd)
+7. [Configuração do Projeto](#configuração-do-projeto)
+8. [Executando Testes](#executando-testes)
+9. [Diagrama de Classes](#diagrama-de-classes)
+10. [Fluxo de Trabalho de Desenvolvimento](#fluxo-de-trabalho-de-desenvolvimento)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Introdução
 
-## Project setup
+Este curso tem como objetivo proporcionar uma experiência prática na aplicação dos princípios de TDD e DDD para criar uma arquitetura de software robusta e sustentável. Vamos focar na construção da camada de domínio de um sistema de gerenciamento de projetos, demonstrando como essas metodologias podem levar a um código mais limpo e organizado que reflete de perto os requisitos de negócios.
 
-```bash
-$ npm install
+## Conceitos de DDD
+
+- Entidades
+- Objetos de Valor
+- Agregados
+- Serviços de Domínio
+- Repositórios
+
+## Noções Básicas de TDD
+
+- Ciclo Red-Green-Refactor
+- Escrevendo testes significativos
+- Isolamento de testes
+
+## Visão Geral do Projeto
+
+Estamos construindo um sistema simples de gerenciamento de projetos com as seguintes entidades principais:
+
+- Projeto
+- Tarefa
+- Usuário
+
+## Modelo de Domínio
+
+Nosso foco será na implementação e teste da camada de domínio, que encapsula a lógica de negócios principal de nossa aplicação.
+
+## Aplicando Conceitos de DDD
+
+Além das entidades básicas, aplicaremos os seguintes conceitos de DDD:
+
+1. **Objeto de Valor**: Criar um objeto de valor `DateRange` para representar as datas de início e fim de um projeto.
+
+2. **Agregado**: Tratar `Projeto` como uma raiz de agregado, com `Tarefa` como parte de seu agregado.
+
+3. **Serviço de Domínio**: Implementar um `ProjectStatusService` para calcular o status geral de um projeto com base em suas tarefas.
+
+## Configuração do Projeto
+
+Este projeto usa NestJS. Para configurá-lo:
+
+1. Clone o repositório
+2. Instale as dependências:
+  ```
+  npm install
+  ```
+3. Execute o servidor de desenvolvimento:
+  ```
+  npm run start:dev
+  ```
+
+## Executando Testes
+
+Execute a suíte de testes usando Jest:
+
+```
+npm run test
 ```
 
-## Compile and run the project
+## Diagrama de Classes
 
-```bash
-# development
-$ npm run start
+![Diagrama de Classes](./assets/docs/images/classes.png)
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
